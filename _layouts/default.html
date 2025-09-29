@@ -14,13 +14,18 @@
       {{ content }}
     </section>
 
-    <aside id="profile">
-      <h3>プロフィール</h3>
-      <p>test</p>
+    <aside id="recent-posts">
+      <h3>最近の投稿</h3>
+      <ul>
+        {% for post in site.posts limit:5 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a><br>
+            <small>{{ post.date | date: "%Y-%m-%d" }}</small>
+          </li>
+        {% endfor %}
+      </ul>
     </aside>
+    {% include footer.html %}
   </main>
-
-  {% include footer.html %}
-  <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
 </body>
 </html>
