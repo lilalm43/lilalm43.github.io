@@ -58,24 +58,45 @@ main {
 }
 
 /* ==========================
- *   最近の投稿（右固定・main内）
+ *   右左メニュー
  * =========================== */
-#left-sidebar {
-position: sticky;
-top: 2rem;
-flex: 1;
-min-width: 220px;
-max-width: 300px;
-margin-left: auto;
-background-color: #e8e8e8;
-padding: 1rem;
-border-radius: 5px;
-box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+#left-sidebar,
+#recent-posts {
+  position: sticky;
+  top: 2rem;
+  flex: 1;
+  min-width: 220px;
+  max-width: 300px;
+  background-color: #e8e8e8;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* 記事一覧（中央） */
 #posts {
 flex: 2;
+}
+
+
+/* ====== モバイル用 ====== */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column; /* 縦並び */
+    padding: 1rem;
+  }
+
+  #left-sidebar,
+  #recent-posts {
+    position: static;       /* スクロール固定を解除 */
+    max-width: 100%;        /* 横幅いっぱいに */
+    margin: 0 0 1rem 0;
+  }
+
+  #posts {
+    flex: none;
+    width: 100%;
+  }
 }
 
 .posts {
@@ -118,7 +139,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1rem;
+  /* padding: 1rem; */
   background-color: #333;
   color: #fff;
   text-align: left;
