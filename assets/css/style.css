@@ -57,7 +57,23 @@ main {
   box-sizing: border-box;
 }
 
-/* 記事一覧（左側） */
+/* ==========================
+ *   最近の投稿（右固定・main内）
+ * =========================== */
+#left-sidebar {
+position: sticky;
+top: 2rem;
+flex: 1;
+min-width: 220px;
+max-width: 300px;
+margin-left: auto;
+background-color: #e8e8e8;
+padding: 1rem;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 記事一覧（中央） */
 #posts {
 flex: 2;
 }
@@ -79,7 +95,7 @@ flex: 2;
 }
 
 /* ==========================
- *   プロフィール（右固定・main内）
+ *   最近の投稿（右固定・main内）
  * =========================== */
 #recent-posts {
 position: sticky;
